@@ -7,19 +7,21 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <h1>CELSIUS to FAHRENHEIT</h1>
     <main>
-
-        <fieldset>
+        <fieldset id="fieldset">
             <div class="celsius">
                 <label for="celsius">CELSIUS:</label>
                 <input type="number" name="celsius" id="celsius" placeholder="Digite em Celsius"/>
             </div>
-            <button class="btn" onclick=convertor()>TRANSFORMAR</button>
+            <button class="btn" onclick=convertor()>CONVERTER</button>
         </fieldset>
 
         <section class="resultado" id="resultado">
             <h1>RESULTADO:</h1>
-            <h2 id="fahrenheit"></h2>
+            <h2>
+                <span id="fahrenheit"></spanid>></span>
+            </h2>
         </section>
 
     </main>

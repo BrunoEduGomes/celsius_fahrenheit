@@ -1,9 +1,17 @@
+html{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    background-image: linear-gradient(to bottom, #FF4500, #FFDEAD 60%); 
+    height: 100%;    
+}
+
 main {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
+    height: 600px;
 }
 
 fieldset {
@@ -11,6 +19,10 @@ fieldset {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-color:cornsilk;
+    border: 3px solid rgb(235, 57, 3);
+    border-radius: 15px;
+    margin-bottom: 197px;
 }
 
 .celsius {
@@ -32,4 +44,5 @@ fieldset {
     border-width: 1px 1px 1px 1px;
     border-style: solid;
     flex-direction: column;
+    background-color: #F0F8FF;
 }
