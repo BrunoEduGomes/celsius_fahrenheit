@@ -13,7 +13,7 @@ function convertor() {
 
     const fahrenheit_text = graus_fahrenheit.textContent; 
     let fahrenheit_Num = Number(fahrenheit_text);       //Converte o valor da tag span para numérico.
-    fahrenheit_Num = celsius_fahrenheit(graus_celsius); //Atribui o valor da conversão para fahrenheit à variável.
+    fahrenheit_Num = celsius_fahrenheit(graus_celsius).toFixed(2); //Atribui o valor da conversão para fahrenheit à variável.
 
     if(graus_celsius == ''){     // Verifica se foi passada alguma entrada em graus celsius.
         graus_fahrenheit.textContent = "TU É BURRO?";
@@ -26,10 +26,3 @@ function convertor() {
     
     document.getElementById('resultado').style.display = 'flex';    // Mostra o resultado na tela.
 }
-
-// const graus_celsius = document.getElementById('celsius').value;
-// const graus_fahrenheit = document.getElementById('fahrenheit'); 
-
-// graus_celsius.addEventListener('HTMLInputElement', () => {
-//     convertor();
-// })
