@@ -4,25 +4,59 @@ function celsius_fahrenheit(celsius){
     return fahrenheit;
 }
 
-document.getElementById('celsius').value = ''; // Limpa o input de celsius
-
-// Função chamada pelo html para fazer a conversão do valor fornecido.
-function convertor() {
-    const graus_celsius = document.getElementById('celsius').value;
-    const graus_fahrenheit = document.getElementById('fahrenheit');  //Salva os valores da página html.
-
-    const fahrenheit_text = graus_fahrenheit.textContent; 
-    let fahrenheit_Num = Number(fahrenheit_text);       //Converte o valor da tag span para numérico.
-    fahrenheit_Num = celsius_fahrenheit(graus_celsius).toFixed(2); //Atribui o valor da conversão para fahrenheit à variável.
-
-    if(graus_celsius == ''){     // Verifica se foi passada alguma entrada em graus celsius.
-        graus_fahrenheit.textContent = "TU É BURRO?";
-        document.getElementById('fieldset').style.marginBottom = 0; // Retira a margem do fieldset para aparecer o resultado.
-    }
-    else{
-        graus_fahrenheit.textContent = fahrenheit_Num + " °F";
-        document.getElementById('fieldset').style.marginBottom = 0;
-    }
-    
-    document.getElementById('resultado').style.display = 'flex';    // Mostra o resultado na tela.
+// Função que faz o calculo da transformacao fahrenheit->celsius
+function fahrenheit_celsius(fahrenheit){
+    const celsius = (fahrenheit - 32) * 5/9;
+    return celsius;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('temperatura').value = ''; // Limpa o input
+    const get_query = document.getElementById('btn');
+    const tipo_grau = document.getElementById('select');
+    tipo_grau.value = 'C';
+
+    tipo_grau.addEventListener('click', () => {
+        if(tipo_grau.value == 'C'){
+            document.getElementById('name').textContent = "CELSIUS:"
+            document.getElementById('temperatura').placeholder = "Digite em °C"
+        } else{
+            document.getElementById('name').textContent = "FAHRENHEIT:"
+            document.getElementById('temperatura').placeholder = "Digite em °F"
+        }
+    })
+
+    get_query.addEventListener('click', () => {
+        const graus = document.getElementById('temperatura').value;
+        const graus_resultado = document.getElementById('result'); // Recebe os valores adquiridos do html;
+        if(tipo_grau.value == 'C'){
+            const fahrenheit_text = graus_resultado.textContent; 
+            let fahrenheit_Num = Number(fahrenheit_text); 
+            fahrenheit_Num = celsius_fahrenheit(graus).toFixed(2);
+            console.log(graus);
+
+            if(graus == ''){     // Verifica se foi passada alguma entrada.
+                graus_resultado.textContent = "TU É BURRO?";
+                document.getElementById('fieldset').style.marginBottom = 0; 
+            }
+            else{
+                graus_resultado.textContent = fahrenheit_Num + " °F";
+                document.getElementById('fieldset').style.marginBottom = 0;
+            }
+        } else{
+                const celsius_text = graus_resultado.textContent; 
+                let celsius_Num = Number(celsius_text);
+                celsius_Num = fahrenheit_celsius(graus).toFixed(2);  //Atribui o valor da conversão para celsius à variável.
+        
+                if(graus == ''){     // Verifica se foi passada alguma entrada.
+                    graus_resultado.textContent = "TU É BURRO?";
+                    document.getElementById('fieldset').style.marginBottom = 0; 
+                }
+                else{
+                    graus_resultado.textContent = celsius_Num + " °C";
+                    document.getElementById('fieldset').style.marginBottom = 0;
+                }
+        }
+        document.getElementById('resultado').style.display = 'flex';    // Mostra o resultado na tela.
+    });
+});

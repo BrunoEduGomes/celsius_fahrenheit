@@ -11,16 +11,20 @@
     <main>
         <fieldset id="fieldset">
             <div class="celsius">
-                <label for="celsius">CELSIUS:</label>
-                <input type="number" name="celsius" id="celsius" placeholder="Digite em °C"/>
+                <label for="temperatura" id="name">CELSIUS:</label>
+                <input type="number" name="temperatura" id="temperatura" placeholder="Digite em °C"/>
+                <select id="select">
+                    <option value="C">°C</option>
+                    <option value="F">°F</option>
+                </select>
             </div>
-            <button class="btn" onclick=convertor()>CONVERTER</button>
+            <button class="btn" id="btn">CONVERTER</button>
         </fieldset>
 
         <section class="resultado" id="resultado">
             <h1>RESULTADO:</h1>
             <h2>
-                <span id="fahrenheit"></spanid>></span>
+                <span id="result"></spanid>></span>
             </h2>
         </section>
 
